@@ -13,6 +13,9 @@ import { Permission } from './core/permissions/entities/permission.entity';
 import { Role } from './core/roles/entities/role.entity';
 import { User } from './core/users/entities/user.entity';
 import { SeedService } from './core/db/seed/seed.service';
+import { ActividadPrincipal } from './todo/entities/actividad-principal.entity';
+import { SubActividad } from './todo/entities/sub-actividad.entity';
+import { TodoModule } from './todo/todo.module';
 
 @Module({
   imports: [
@@ -24,7 +27,7 @@ import { SeedService } from './core/db/seed/seed.service';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [ Role, Permission, User, Menu ],
+      entities: [ Role, Permission, User, Menu, ActividadPrincipal, SubActividad ],
       synchronize: true,
     }),
     TypeOrmModule.forFeature([Permission, Role, User]),
@@ -32,7 +35,8 @@ import { SeedService } from './core/db/seed/seed.service';
     UsersModule,
     RolesModule,
     PermissionsModule,
-    MenusModule
+    MenusModule,
+    TodoModule,
   ],
   controllers: [AppController],
   providers: [AppService, SeedService],
