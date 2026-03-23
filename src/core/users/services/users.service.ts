@@ -21,7 +21,6 @@ export class UsersService {
         return this.userRepo.findOne({ where: { email } });
     }
 
-    /** Lista mínima para selects de asignación (sin contraseña). */
     async listarParaAsignacion(): Promise<{ id: number; nombre: string; correo: string }[]> {
 
         const filas = await this.userRepo.find({
