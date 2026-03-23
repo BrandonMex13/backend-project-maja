@@ -38,7 +38,6 @@ export class SeedService {
             permissions.push(permission);
         }
 
-        /** 2️⃣ Rol ADMIN */
         let adminRole = await this.roleRepo.findOne({
             where: { name: 'ADMIN' },
         });
